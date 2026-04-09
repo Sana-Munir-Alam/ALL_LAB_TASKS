@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("https://w0.peakpx.com/wallpaper/201/816/HD-wallpaper-dark-green-forest-night-green-forest.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.wrapper {
+    width: 420px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, .3);
+    backdrop-filter: blur(20px);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+.wrapper h2 {
+    font-size: 36px;
+    text-align: center;
+}
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 20px 0px;
+}
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .3);
+    border-radius: 50px;
+    font-size: 15px;
+    padding: 15px 45px 15px 20px;
+    color: #fff;
+}
+.input-box input::placeholder {
+    color: #fff;
+}
+
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+.wrapper .feedback {
+    position: relative;
+    width: 100%;
+    margin: 30px 0px;
+}
+.wrapper .feedback textarea {
+    width: 100%;
+    height: 150px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .3);
+    border-radius: 20px;
+    padding: 15px 20px;
+    color: #fff;
+    font-size: 15px;
+    resize: none;
+}
+.wrapper .feedback textarea::placeholder {
+    color: #fff;
+}
+.wrapper .rating {
+    display: flex;
+    flex-direction:row-reverse;
+    justify-content: space-between;
+    width: 100%;
+    margin: 20px 0;
+    color: #fff;
+}
+.rating label {
+    font-size: 24px;
+    cursor: pointer;
+}
+.rating input {
+    display: none;
+}
+.rating input:checked ~ label {
+    color: gold;
+}
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, .3);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}

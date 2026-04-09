@@ -1,0 +1,40 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 50px;
+    min-height: 100vh;
+    background: url(https://images.template.net/95631/free-light-red-background-qs0yu.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+h1 {
+    text-align: center;
+}
+table{
+    width: 60%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border: 1px solid #000;
+    background-color: #dab7b78f;
+}
+
+table th, table td{
+    border: 1px solid #000;
+    text-align: left;
+    padding: 12px;
+}
+table th {
+    background-color: #9a8484;
+
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9b1;
+}
+tr:nth-child(odd) {
+    background-color: #cea4a4;
+}

@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body {
+    line-height: 1.6;
+}
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.445),hsla(0, 0%, 0%, 0.445)), url("https://t4.ftcdn.net/jpg/04/19/26/97/360_F_419269782_9LsP3TQndMVnZ2j3ZhTPhMjaqQpFAth9.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 20px; 
+}
+.hero-action{
+    text-align:center;
+    max-width:60%;
+}
+.hero-action h1{
+    font-size: 3rem;
+    margin-bottom: 20px; 
+}
+.hero-action p{
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.cta-button{
+    background-color: rgb(206, 156, 228);
+    color:rgb(52, 33, 224);
+    border: none;
+    outline: none;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0px 0px 25px rgba(113, 120, 174, 0.894);
+    padding:15px 30px;
+    font-size:18px;
+    font-weight: 550;
+}
+.cta-button:hover {
+    background-color: rgb(178, 69, 225);
+}
+
+#about-us {
+    background-color: #f4f4f4;
+    padding: 60px 20px;
+}
+.about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.about img{
+    max-width: 100%;
+    margin-right: 20px;
+    margin-bottom: 15px;
+}
+.about p{
+    max-width: 90%;
+    text-align: left;
+}
+@media (max-width: 768px) {
+    .about {
+        flex-direction: column;
+    }
+    .about-content img {
+        margin-right: 0;
+        margin-bottom: 15px;
+        max-width:100%;
+    }
+}
+
+#services{
+    background-color: #fff;
+}
+#services ul {
+    list-style-type: none;
+    padding: 0;
+}
+#services li {
+    font-size: 18px;
+    padding: 10px 0px;
+}
+#services li::before {
+    content: "=>"; 
+    position: relative;
+    left: -10px;
+    color: rgb(178, 69, 225);
+}
+
+#contact{
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#contact form {
+    width: 420px;
+    background-color: transparent;
+    border: 2px solid rgba(178, 69, 225, 0.882);
+    color: #333;
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+#contact .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 20px 0px;
+}
+#contact .input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(178, 69, 225,0.882);
+    border-radius: 50px;
+    font-size: 15px;
+    padding: 15px 45px 15px 20px;
+    color: #000;
+}
+#contact .input-box input::placeholder {
+    color: #4f4949;
+}
+#contact .input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+#contact .message {
+    position: relative;
+    width: 100%;
+    margin: 30px 0px;
+}
+#contact .message textarea {
+    width: 100%;
+    height: 150px;
+    background: transparent;
+    border: 2px solid rgba(178, 69, 225,0.882);
+    border-radius: 20px;
+    padding: 15px 20px;
+    color: #000;
+    font-size: 15px;
+    resize: none;
+}
+#contact .message textarea::placeholder {
+    color: #4f4949;
+}
+
+#contact .btn {
+    width: 100%;
+    height: 45px;
+    background-color:rgb(206, 156, 228);
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0px 0px 25px  rgba(113, 120, 174, 0.894);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+#contact .btn:hover{
+    background-color: rgb(178, 69, 225);
+}
