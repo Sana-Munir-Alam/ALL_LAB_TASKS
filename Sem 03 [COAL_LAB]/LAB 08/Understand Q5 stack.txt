@@ -1,0 +1,114 @@
+ESP → [main's data...]
+
+// STEP 1
+push 3                    ; Push parameter
+call Factorial            ; Push return address
+
+Stack after call:
+ESP → [return address to main]
+      [parameter: 3]
+      [main's data...]
+
+// STEP 2:  Inside Factorial(3) - prologue
+push ebp                  ; Save main's EBP
+mov ebp, esp              ; EBP points to current frame
+
+Stack now:
+ESP → [old EBP]           ← EBP points here
+      [return address to main]
+      [parameter: 3]      ← [EBP + 8]
+      [main's data...]
+
+// STEP 3: Factorial(3) calls Factorial(2)
+dec eax                   ; EAX = 2
+push 2                    ; Push parameter for recursive call
+call Factorial            ; Push return address
+
+Stack before recursive call:
+ESP → [return address to Factorial(3)]
+      [parameter: 2]
+      [old EBP]           ← EBP still points here
+      [return address to main]
+      [parameter: 3]      ← [EBP + 8]
+      [main's data...]
+
+// STEP 4: Inside Factorial(2) - prologue
+push ebp                  ; Save Factorial(3)'s EBP  
+mov ebp, esp              ; New EBP for Factorial(2)
+
+Stack now:
+ESP → [old EBP]           ← EBP points here (was Factorial(3)'s EBP)
+      [return address to Factorial(3)]
+      [parameter: 2]      ← [EBP + 8]
+      [old EBP]           ← Previous EBP frame
+      [return address to main]
+      [parameter: 3]      ← Can still access via previous frames
+      [main's data...]
+
+
+// STEP 5:  Factorial(2) calls Factorial(1)
+dec eax                   ; EAX = 1
+push 1                    ; Push parameter
+call Factorial            ; Push return address
+
+Stack before call:
+ESP → [return address to Factorial(2)]
+      [parameter: 1]
+      [old EBP]           ← EBP still points here
+      [return address to Factorial(3)]
+      [parameter: 2]      ← [EBP + 8]
+      [old EBP]           ← Previous EBP frame
+      [return address to main]
+      [parameter: 3]
+      [main's data...]
+
+
+// STEP 6:  Inside Factorial(1) - BASE CASE
+push ebp
+mov ebp, esp
+
+Stack now:
+ESP → [old EBP]           ← EBP points here (was Factorial(2)'s EBP)
+      [return address to Factorial(2)]
+      [parameter: 1]      ← [EBP + 8]
+      [old EBP]           ← Previous EBP frame
+      [return address to Factorial(3)]
+      [parameter: 2]      ← Can access via previous frames
+      [old EBP]           ← Previous EBP frame  
+      [return address to main]
+      [parameter: 3]
+      [main's data...]
+
+EAX = 1 (base case returns 1)
+pop ebp                   ; Restore EBP to Factorial(2)'s frame
+ret                       ; Return to Factorial(2)
+
+
+// STEP 7: Back in Factorial(2)
+; After return from Factorial(1), EAX = 1
+; Stack after return:
+ESP → [old EBP]           ← EBP points here
+      [return address to Factorial(3)]
+      [parameter: 2]      ← [EBP + 8]
+      [old EBP]           ← Previous EBP frame
+      [return address to main]
+      [parameter: 3]
+      [main's data...]
+
+mov ebx, [ebp+8]          ; EBX = 2
+mul ebx                   ; EAX = 1 * 2 = 2
+pop ebp                   ; Restore EBP to Factorial(3)'s frame
+ret                       ; Return to Factorial(3)
+
+// STEP 8: Back in Factorial(3)
+; After return from Factorial(2), EAX = 2
+; Stack after return:
+ESP → [old EBP]           ← EBP points here
+      [return address to main]
+      [parameter: 3]      ← [EBP + 8]
+      [main's data...]
+
+mov ebx, [ebp+8]          ; EBX = 3
+mul ebx                   ; EAX = 2 * 3 = 6
+pop ebp                   ; Restore EBP to main's frame
+ret                       ; Return to main
