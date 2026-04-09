@@ -1,0 +1,39 @@
+----Q1
+SELECT COUNT(*) FROM EMPLOYEES;
+
+----Q2
+SELECT AVG(Salary) AS Average_Salary FROM EMPLOYEES;
+
+----Q3
+SELECT Department_ID, COUNT(Employee_ID) FROM EMPLOYEES
+GROUP BY Department_ID;
+
+----Q4
+SELECT Department_ID, MAX(Commission_PCT) FROM EMPLOYEES
+GROUP BY Department_ID;
+
+----Q5
+SELECT Job_ID, Min(Salary) FROM EMPLOYEES
+GROUP BY Job_ID;
+
+----Q6)
+SELECT Job_ID, SUM(Salary) FROM EMPLOYEES
+GROUP BY Job_ID;
+
+----Q7)
+SELECT EXTRACT(YEAR FROM Hire_Date), COUNT(Employee_ID) FROM EMPLOYEES
+GROUP BY EXTRACT(YEAR FROM Hire_Date);
+
+----Q8)
+SELECT Department_ID, AVG(Commission_PCT) FROM EMPLOYEES
+WHERE Department_ID IS NOT NULL
+GROUP BY Department_ID HAVING AVG(Commission_PCT) &gt; 0.10;
+
+----Q9)
+SELECT Manager_ID, COUNT(Employee_ID) FROM EMPLOYEES
+GROUP BY Manager_ID HAVING COUNT(Employee_ID) &gt; 2;
+
+----Q10)
+SELECT Department_ID, MAX(Salary) FROM EMPLOYEES
+
+GROUP BY Department_ID HAVING MAX(Salary) &gt; 12000;

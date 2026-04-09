@@ -1,0 +1,96 @@
+----Q1
+SELECT Employee_ID, Salary * 12 AS Yearly_Salary FROM EMPLOYEES;
+
+----Q2
+SELECT Employee_ID, Salary FROM EMPLOYEES
+WHERE Salary * 1.10 > 5000;
+
+----Q3
+SELECT First_Name, Last_Name,
+    Salary + (Salary * COALESCE(Commission_PCT, 0)) AS Total_Earnings
+FROM EMPLOYEES;
+
+----Q4
+SELECT CONCAT(CONCAT(First_name, ' '), Last_name) AS Full_name FROM EMPLOYEES;
+
+----Q5
+SELECT * FROM EMPLOYEES
+WHERE First_Name LIKE 'A%' OR First_Name LIKE 'J%';
+
+----Q6
+SELECT * FROM EMPLOYEES
+WHERE Last_Name LIKE '%son%';
+
+----Q7
+SELECT * FROM EMPLOYEES
+WHERE (Salary * 12 * (1- COALESCE(Commission_PCT, 0))) > 50000;
+
+----Q8
+SELECT * FROM EMPLOYEES
+WHERE Hire_Date + 30 < SYSDATE;
+
+----Q9
+SELECT * FROM EMPLOYEES
+WHERE (Salary / 12) BETWEEN 300 AND 700;
+
+----Q10
+SELECT * FROM EMPLOYEES
+WHERE Department_ID IN (10, 20, 30);
+
+----Q11
+SELECT DISTINCT Job_ID FROM EMPLOYEES;
+
+----Q12
+SELECT * FROM EMPLOYEES
+ORDER BY Last_Name ASC, Salary DESC;
+
+----Q13
+SELECT * FROM EMPLOYEES
+WHERE LENGTH(First_Name) > 5;
+
+----Q14
+SELECT * FROM EMPLOYEES
+WHERE MOD(Salary, 1000) = 0;
+
+----Q15
+SELECT * FROM EMPLOYEES
+WHERE Commission_PCT IS NULL OR Commission_PCT = 0;
+
+----Q16
+SELECT * FROM EMPLOYEES
+WHERE TO_CHAR(Hire_Date, 'MM') = '01';
+
+----Q17
+SELECT * FROM EMPLOYEES
+WHERE First_Name LIKE 'El%' AND Last_Name LIKE '%o';
+
+----Q18
+SELECT * FROM EMPLOYEES
+WHERE Salary > 4000 AND Salary < 7000;
+
+----Q19
+SELECT * FROM EMPLOYEES
+WHERE (Salary + Salary * COALESCE(Commission_PCT, 0)) > 6000 OR Hire_Date > TO_DATE('2010-01-01', 'YYYY-MM-DD');
+
+----Q20
+SELECT UPPER(First_name), LOWER(Last_name) FROM EMPLOYEES;
+
+----Q21
+SELECT * FROM EMPLOYEES
+WHERE TRUNC(Hire_date) < TO_DATE('2020-01-01', 'YYYY-MM-DD');
+
+----Q22
+SELECT SUBSTR(Last_name, 1, 3) FROM EMPLOYEES;
+
+----Q23
+SELECT ROUND(Salary, -2) FROM EMPLOYEES;
+
+----Q24
+SELECT * FROM EMPLOYEES
+WHERE Salary > 5000 AND Department_id <> 90;
+
+----Q25
+SELECT Hire_date,
+       TRUNC(SYSDATE - Hire_date) AS Days_since_hired,
+       Hire_date + 10 AS Hire_plus_10
+FROM EMPLOYEES;
